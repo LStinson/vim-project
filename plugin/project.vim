@@ -1177,21 +1177,21 @@ function! s:Project(filename) " <<<
         nnoremap <buffer> <silent> <Return>   \|:call <SID>DoFoldOrOpenEntry('', 'e')<CR>
         nnoremap <buffer> <silent> <S-Return> \|:call <SID>DoFoldOrOpenEntry('', 'sp')<CR>
         nnoremap <buffer> <silent> <C-Return> \|:call <SID>DoFoldOrOpenEntry('silent! only', 'e')<CR>
-        nnoremap <buffer> <silent> <LocalLeader>T \|:call <SID>DoFoldOrOpenEntry('', 'tabe')<CR>
-        nmap     <buffer> <silent> <LocalLeader>s <S-Return>
-        nnoremap <buffer> <silent> <LocalLeader>S \|:call <SID>LoadAllSplit(0, line('.'))<CR>
-        nmap     <buffer> <silent> <LocalLeader>o <C-Return>
-        nnoremap <buffer> <silent> <LocalLeader>i :echo <SID>RecursivelyConstructDirectives(line('.'))<CR>
-        nnoremap <buffer> <silent> <LocalLeader>I :echo Project_GetFname(line('.'))<CR>
+        nnoremap <buffer> <silent> <Leader>T \|:call <SID>DoFoldOrOpenEntry('', 'tabe')<CR>
+        nmap     <buffer> <silent> <Leader>s <S-Return>
+        nnoremap <buffer> <silent> <Leader>S \|:call <SID>LoadAllSplit(0, line('.'))<CR>
+        nmap     <buffer> <silent> <Leader>o <C-Return>
+        nnoremap <buffer> <silent> <Leader>i :echo <SID>RecursivelyConstructDirectives(line('.'))<CR>
+        nnoremap <buffer> <silent> <Leader>I :echo Project_GetFname(line('.'))<CR>
         nmap     <buffer> <silent> <M-CR> <Return><C-W>p
-        nmap     <buffer> <silent> <LocalLeader>v <M-CR>
-        nnoremap <buffer> <silent> <LocalLeader>l \|:call <SID>LoadAll(0, line('.'))<CR>
-        nnoremap <buffer> <silent> <LocalLeader>L \|:call <SID>LoadAll(1, line('.'))<CR>
-        nnoremap <buffer> <silent> <LocalLeader>w \|:call <SID>WipeAll(0, line('.'))<CR>
-        nnoremap <buffer> <silent> <LocalLeader>W \|:call <SID>WipeAll(1, line('.'))<CR>
-        nnoremap <buffer> <silent> <LocalLeader>W \|:call <SID>WipeAll(1, line('.'))<CR>
-        nnoremap <buffer> <silent> <LocalLeader>g \|:call <SID>GrepAll(0, line('.'), "")<CR>
-        nnoremap <buffer> <silent> <LocalLeader>G \|:call <SID>GrepAll(1, line('.'), "")<CR>
+        nmap     <buffer> <silent> <Leader>v <M-CR>
+        nnoremap <buffer> <silent> <Leader>l \|:call <SID>LoadAll(0, line('.'))<CR>
+        nnoremap <buffer> <silent> <Leader>L \|:call <SID>LoadAll(1, line('.'))<CR>
+        nnoremap <buffer> <silent> <Leader>w \|:call <SID>WipeAll(0, line('.'))<CR>
+        nnoremap <buffer> <silent> <Leader>W \|:call <SID>WipeAll(1, line('.'))<CR>
+        nnoremap <buffer> <silent> <Leader>W \|:call <SID>WipeAll(1, line('.'))<CR>
+        nnoremap <buffer> <silent> <Leader>g \|:call <SID>GrepAll(0, line('.'), "")<CR>
+        nnoremap <buffer> <silent> <Leader>G \|:call <SID>GrepAll(1, line('.'), "")<CR>
         nnoremap <buffer> <silent> <2-LeftMouse>   \|:call <SID>DoFoldOrOpenEntry('', 'e')<CR>
         nnoremap <buffer> <silent> <S-2-LeftMouse> \|:call <SID>DoFoldOrOpenEntry('', 'sp')<CR>
         nnoremap <buffer> <silent> <M-2-LeftMouse> <M-CR>
@@ -1206,26 +1206,26 @@ function! s:Project(filename) " <<<
         nnoremap <buffer> <silent> <space>  \|:silent exec 'vertical resize '.(match(g:proj_flags, '\Ct')!=-1 && winwidth('.') > g:proj_window_width?(g:proj_window_width):(winwidth('.') + g:proj_window_increment))<CR>
         nnoremap <buffer> <silent> <C-Up>   \|:silent call <SID>MoveUp()<CR>
         nnoremap <buffer> <silent> <C-Down> \|:silent call <SID>MoveDown()<CR>
-        nmap     <buffer> <silent> <LocalLeader><Up> <C-Up>
-        nmap     <buffer> <silent> <LocalLeader><Down> <C-Down>
+        nmap     <buffer> <silent> <Leader><Up> <C-Up>
+        nmap     <buffer> <silent> <Leader><Down> <C-Down>
         let k=1
         while k < 10
-            exec 'nnoremap <buffer> <LocalLeader>'.k.'  \|:call <SID>Spawn('.k.')<CR>'
-            exec 'nnoremap <buffer> <LocalLeader>f'.k.' \|:call <SID>SpawnAll(0, '.k.')<CR>'
-            exec 'nnoremap <buffer> <LocalLeader>F'.k.' \|:call <SID>SpawnAll(1, '.k.')<CR>'
+            exec 'nnoremap <buffer> <Leader>'.k.'  \|:call <SID>Spawn('.k.')<CR>'
+            exec 'nnoremap <buffer> <Leader>f'.k.' \|:call <SID>SpawnAll(0, '.k.')<CR>'
+            exec 'nnoremap <buffer> <Leader>F'.k.' \|:call <SID>SpawnAll(1, '.k.')<CR>'
             let k=k+1
         endwhile
-        nnoremap <buffer>          <LocalLeader>0 \|:call <SID>ListSpawn("")<CR>
-        nnoremap <buffer>          <LocalLeader>f0 \|:call <SID>ListSpawn("_fold")<CR>
-        nnoremap <buffer>          <LocalLeader>F0 \|:call <SID>ListSpawn("_fold")<CR>
-        nnoremap <buffer> <silent> <LocalLeader>c :call <SID>CreateEntriesFromDir(0)<CR>
-        nnoremap <buffer> <silent> <LocalLeader>C :call <SID>CreateEntriesFromDir(1)<CR>
-        nnoremap <buffer> <silent> <LocalLeader>r :call <SID>RefreshEntriesFromDir(0)<CR>
-        nnoremap <buffer> <silent> <LocalLeader>R :call <SID>RefreshEntriesFromDir(1)<CR>
+        nnoremap <buffer>          <Leader>0 \|:call <SID>ListSpawn("")<CR>
+        nnoremap <buffer>          <Leader>f0 \|:call <SID>ListSpawn("_fold")<CR>
+        nnoremap <buffer>          <Leader>F0 \|:call <SID>ListSpawn("_fold")<CR>
+        nnoremap <buffer> <silent> <Leader>c :call <SID>CreateEntriesFromDir(0)<CR>
+        nnoremap <buffer> <silent> <Leader>C :call <SID>CreateEntriesFromDir(1)<CR>
+        nnoremap <buffer> <silent> <Leader>r :call <SID>RefreshEntriesFromDir(0)<CR>
+        nnoremap <buffer> <silent> <Leader>R :call <SID>RefreshEntriesFromDir(1)<CR>
         " For Windows users: same as \R
         nnoremap <buffer> <silent>           <F5> :call <SID>RefreshEntriesFromDir(1)<CR>
-        nnoremap <buffer> <silent> <LocalLeader>e :call <SID>OpenEntry(line('.'), '', '', 0)<CR>
-        nnoremap <buffer> <silent> <LocalLeader>E :call <SID>OpenEntry(line('.'), '', 'e', 1)<CR>
+        nnoremap <buffer> <silent> <Leader>e :call <SID>OpenEntry(line('.'), '', '', 0)<CR>
+        nnoremap <buffer> <silent> <Leader>E :call <SID>OpenEntry(line('.'), '', 'e', 1)<CR>
         " The :help command stomps on the Project Window.  Try to avoid that.
         " This is not perfect, but it is alot better than without the mappings.
         cnoremap <buffer> help let g:proj_doinghelp = 1<CR>:help
